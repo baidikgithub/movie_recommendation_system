@@ -32,5 +32,16 @@ def train_neural_cf(ratings, epochs=5, batch_size=256):
     X = [ratings["userId"].values, ratings["movieId"].values]
     y = ratings["rating"].values
 
-    model.fit(X, y, epochs=epochs, batch_size=batch_size, validation_split=0.1, verbose=1)
-    return model
+    # ✅ Capture history
+    history = model.fit(
+        X, y,
+        epochs=epochs,
+        batch_size=batch_size,
+        validation_split=0.1,
+        verbose=1
+    )
+
+    # Save trained model
+    model.save("neural_cf_model.h5")
+
+    return model, history

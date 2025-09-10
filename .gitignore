@@ -1,3 +1,12 @@
 venv
 .DS_Store
-models/recommender.pkl
+# Python cache
+__pycache__
+*.pyc
+
+# Training history / logs
+training_history.json
+
+# TensorFlow / Keras model files
+*.h5
+*.keras
